@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Linux for HPC &mdash; Basic Linux for HPC 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Basic Linux for HPC
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Basic Linux for HPC</a><ul>
+<li><a class="reference internal" href="#what-is-shell">What is shell?</a></li>
+<li><a class="reference internal" href="#useful-shell-basic-commands">Useful Shell basic commands</a><ul>
+<li><a class="reference internal" href="#bash-files-and-directories">Bash: Files and directories</a></li>
+<li><a class="reference internal" href="#bash-creating-directories-and-files">Bash: creating directories and files</a></li>
+<li><a class="reference internal" href="#copying-moving-renaming-and-deleting">Copying, moving renaming and deleting</a></li>
+<li><a class="reference internal" href="#file-permissions-with-chmod">File permissions with chmod</a></li>
+<li><a class="reference internal" href="#bash-history-and-tab-completion">Bash: history and tab completion</a></li>
+<li><a class="reference internal" href="#bash-finding-things">Bash: finding things</a></li>
+<li><a class="reference internal" href="#bash-redirecting-output">Bash: Redirecting output</a></li>
+<li><a class="reference internal" href="#bash-writing-shell-scripts">Bash: Writing shell scripts</a></li>
+<li><a class="reference internal" href="#arguments-to-script-can-be-passed-by-using">Arguments to script can be passed by using <strong>$</strong></a></li>
+<li><a class="reference internal" href="#information-about-shell-commands">Information about shell commands</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#executing-your-software">Executing your software</a></li>
+<li><a class="reference internal" href="#editing-your-files">Editing your files</a></li>
+<li><a class="reference internal" href="#further-information">Further information</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Basic Linux for HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Basic Linux for HPC</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basic-linux-for-hpc">
+<h1>Basic Linux for HPC<a class="headerlink" href="#basic-linux-for-hpc" title="Link to this heading"></a></h1>
+<p>Working with HPC resources requires a basic understanding of Linux
+systems. Some of our users are new to using Linux-based systems and have
+asked for introductory materials. Here is a collection for the basic
+command-line operations needed to get started with the cluster.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#what-is-shell" id="id1">What is shell?</a></p></li>
+<li><p><a class="reference internal" href="#useful-shell-basic-commands" id="id2">Useful Shell basic commands</a></p>
+<ul>
+<li><p><a class="reference internal" href="#bash-files-and-directories" id="id3">Bash: Files and directories</a></p></li>
+<li><p><a class="reference internal" href="#bash-creating-directories-and-files" id="id4">Bash: creating directories and files</a></p></li>
+<li><p><a class="reference internal" href="#copying-moving-renaming-and-deleting" id="id5">Copying, moving renaming and deleting</a></p></li>
+<li><p><a class="reference internal" href="#file-permissions-with-chmod" id="id6">File permissions with chmod</a></p></li>
+<li><p><a class="reference internal" href="#bash-history-and-tab-completion" id="id7">Bash: history and tab completion</a></p></li>
+<li><p><a class="reference internal" href="#bash-finding-things" id="id8">Bash: finding things</a></p></li>
+<li><p><a class="reference internal" href="#bash-redirecting-output" id="id9">Bash: Redirecting output</a></p></li>
+<li><p><a class="reference internal" href="#bash-writing-shell-scripts" id="id10">Bash: Writing shell scripts</a></p></li>
+<li><p><a class="reference internal" href="#arguments-to-script-can-be-passed-by-using" id="id11">Arguments to script can be passed by using <strong>$</strong></a></p></li>
+<li><p><a class="reference internal" href="#information-about-shell-commands" id="id12">Information about shell commands</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#executing-your-software" id="id13">Executing your software</a></p></li>
+<li><p><a class="reference internal" href="#editing-your-files" id="id14">Editing your files</a></p></li>
+<li><p><a class="reference internal" href="#further-information" id="id15">Further information</a></p></li>
+</ul>
+</nav>
+<hr class="docutils" />
+<section id="what-is-shell">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">What is shell?</a><a class="headerlink" href="#what-is-shell" title="Link to this heading"></a></h2>
+<p>The <strong>shell</strong> is the program from which the user controls everything in
+a text-interface. When you login to the cluster remotely, you are
+already in the shell window of the system. In the shell, you
+can start typing commands to perform some action. The default shell on
+the cluster is <strong>bash</strong>.</p>
+</section>
+<section id="useful-shell-basic-commands">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Useful Shell basic commands</a><a class="headerlink" href="#useful-shell-basic-commands" title="Link to this heading"></a></h2>
+<p>To open the shell for Ada, do the following,</p>
+<img alt="_images/putty_login.png" src="_images/putty_login.png" />
+<ol class="arabic simple">
+<li><p>Find (UoN)Putty app from windows</p></li>
+<li><p>Type in &lt;login002.augusta.nottinghan.ac.uk&gt; in the host name tab.</p></li>
+<li><p>You can save the session for logging in again.</p></li>
+<li><p>Open.</p></li>
+<li><p>A <strong>shell</strong> finally opens which prompts from the user, their university id.</p></li>
+<li><p>Enter your password.</p></li>
+</ol>
+<p>Once successfull you will be inside Augusta’s or Ada’s home page.</p>
+<section id="bash-files-and-directories">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Bash: Files and directories</a><a class="headerlink" href="#bash-files-and-directories" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Command <strong>pwd</strong> tells me where I am. After login I am in the
+â€œhomeâ€ directory</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pwd</span>
+<span class="o">/</span><span class="n">gpfs01</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">uizas3</span>
+</pre></div>
+</div>
+</li>
+<li><p>I can change the directory with <strong>cd</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">tmp</span><span class="o">/</span><span class="n">talks</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">talks</span>
+<span class="n">pwd</span>
+<span class="o">/</span><span class="n">gpfs01</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">uizas3</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">talks</span>
+</pre></div>
+</div>
+</li>
+<li><p>I can go one level up with <strong>cd ..</strong></p></li>
+<li><p>I can return to my HOME folder with <strong>cd</strong></p></li>
+<li><p>List the contents with <strong>ls -l</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="nd">@sol</span><span class="o">-</span><span class="n">login</span><span class="p">:</span><span class="o">~/</span><span class="n">tmp</span><span class="o">/</span><span class="n">talks</span>
+<span class="n">ls</span> <span class="o">-</span><span class="n">l</span>
+<span class="n">total</span> <span class="mi">164</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">x</span><span class="o">---</span> <span class="mi">4</span> <span class="n">uizas3</span> <span class="n">domain</span> <span class="n">users</span>   <span class="mi">4096</span> <span class="n">Feb</span> <span class="mi">12</span> <span class="mi">14</span><span class="p">:</span><span class="mi">02</span> <span class="n">CUDA</span><span class="o">-</span><span class="n">related</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">x</span><span class="o">---</span> <span class="mi">6</span> <span class="n">uizas3</span> <span class="n">domain</span> <span class="n">users</span>   <span class="mi">4096</span> <span class="n">Jan</span> <span class="mi">26</span> <span class="mi">10</span><span class="p">:</span><span class="mi">37</span> <span class="n">EXAMPLES</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">x</span><span class="o">---</span> <span class="mi">9</span> <span class="n">uizas3</span> <span class="n">domain</span> <span class="n">users</span>   <span class="mi">4096</span> <span class="n">Feb</span> <span class="mi">12</span> <span class="mi">12</span><span class="p">:</span><span class="mi">01</span> <span class="n">HPC</span><span class="o">-</span><span class="n">fluent</span><span class="o">-</span><span class="n">soton</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">x</span><span class="o">---</span> <span class="mi">4</span> <span class="n">uizas3</span> <span class="n">domain</span> <span class="n">users</span>   <span class="mi">4096</span> <span class="n">Feb</span>  <span class="mi">2</span> <span class="mi">10</span><span class="p">:</span><span class="mi">06</span> <span class="n">MPI</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">-----</span> <span class="mi">1</span> <span class="n">uizas3</span> <span class="n">domain</span> <span class="n">users</span> <span class="mi">145573</span> <span class="n">Feb</span> <span class="mi">12</span> <span class="mi">13</span><span class="p">:</span><span class="mi">54</span> <span class="n">VCFtools</span><span class="o">.</span><span class="n">pdf</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="bash-creating-directories-and-files">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Bash: creating directories and files</a><a class="headerlink" href="#bash-creating-directories-and-files" title="Link to this heading"></a></h3>
+<ul>
+<li><p>We create a new directory called <em>results</em> and change to it</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">results</span>
+<span class="n">cd</span> <span class="n">results</span>
+</pre></div>
+</div>
+</li>
+<li><p>Creating and editing files</p>
+<ul class="simple">
+<li><p>Textfiles can be edited on your local computer and then transferred.</p></li>
+<li><p>Textfiles can also be edited locally using text editor like <strong>nano</strong>/<strong>emacs</strong>/<strong>vim</strong>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="copying-moving-renaming-and-deleting">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Copying, moving renaming and deleting</a><a class="headerlink" href="#copying-moving-renaming-and-deleting" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># copy file</span>
+<span class="n">cp</span> <span class="n">draft</span><span class="o">.</span><span class="n">txt</span> <span class="n">backup</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># recursively copy directory</span>
+<span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">results</span> <span class="n">backup</span>
+
+<span class="c1"># move/rename file</span>
+<span class="n">mv</span> <span class="n">draft</span><span class="o">.</span><span class="n">txt</span> <span class="n">draft_2</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># move/rename directory</span>
+<span class="n">mv</span> <span class="n">results</span> <span class="n">backup</span>
+
+<span class="c1"># move directory one level up</span>
+<span class="n">mv</span> <span class="n">results</span> <span class="o">..</span>
+
+<span class="c1"># remove file</span>
+<span class="n">rm</span> <span class="n">draft</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># remove directory and all its contents</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">r</span> <span class="n">results</span>
+</pre></div>
+</div>
+</section>
+<section id="file-permissions-with-chmod">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">File permissions with chmod</a><a class="headerlink" href="#file-permissions-with-chmod" title="Link to this heading"></a></h3>
+<p>In Linux systems all files have a user, a group and a set of privileges which determines what resources a user can access. Every file has three different kind of access: read(r), write(w) and execute(x), as well as three different kind of permissions depending on if the person is the owner(u=user) of the file, in the same group(g) or someone else(o=other).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">g</span><span class="o">+</span><span class="n">w</span> <span class="n">file</span>
+</pre></div>
+</div>
+<p>Adds(+) write(w) permissions for group(g) to the <em>file</em>.</p>
+<p>There is another way to set the permissions by using numbers. Assume
+that each permission equals the number listed below:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Number</p></th>
+<th class="head"><p>Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>no permissions</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>execute</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>write</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>read</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="mi">753</span> <span class="n">file</span>
+</pre></div>
+</div>
+<p>Gives the user the read, write and execute permission(4+2+1), whereas
+users in the same group get read and execute permissions (4+1) while
+others get write and execute permissions (2+1).</p>
+</section>
+<section id="bash-history-and-tab-completion">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Bash: history and tab completion</a><a class="headerlink" href="#bash-history-and-tab-completion" title="Link to this heading"></a></h3>
+<ul>
+<li><p>history preserve commands used</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">history</span>
+<span class="mi">689</span>  <span class="n">cd</span> <span class="o">..</span>
+<span class="mi">691</span>  <span class="n">cd</span> <span class="n">Documents</span><span class="o">/</span>
+<span class="mi">692</span>  <span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">introduction</span> <span class="o">/</span><span class="n">gpfs01</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">uizas3</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">Presentations</span>
+<span class="mi">693</span>  <span class="n">cd</span> <span class="n">introduction</span><span class="o">/</span>
+<span class="mi">694</span>  <span class="n">ls</span> <span class="o">-</span><span class="n">l</span>
+<span class="mi">695</span>  <span class="n">pwd</span>
+<span class="mi">696</span>  <span class="n">history</span>
+</pre></div>
+</div>
+</li>
+<li><p>If I want to repeat…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!696
+pwd
+~/Documents/introduction
+</pre></div>
+</div>
+</li>
+<li><p>Use also the <strong>TAB</strong> key for completion</p></li>
+<li><p><strong>CTRL/R</strong> to search for previous commands</p></li>
+<li><p>Arrows up/down to scroll for earlier commands</p></li>
+</ul>
+</section>
+<section id="bash-finding-things">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Bash: finding things</a><a class="headerlink" href="#bash-finding-things" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Extract lines which contain an expression with <strong>grep</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># extract all lines that contain searchme</span>
+<span class="n">grep</span> <span class="n">searchme</span> <span class="n">draft</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</li>
+<li><p>If you do not know what a UNIX command does, examine it with <strong>man</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">man</span> <span class="p">[</span><span class="n">command</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Find files with <strong>find</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">find</span> <span class="o">~</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">lostfile</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</li>
+<li><p>We can pipe commands and filter results with |</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grep</span> <span class="n">energy</span> <span class="n">results</span><span class="o">.</span><span class="n">out</span> <span class="o">|</span> <span class="n">sort</span> <span class="o">|</span> <span class="n">uniq</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="bash-redirecting-output">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Bash: Redirecting output</a><a class="headerlink" href="#bash-redirecting-output" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Print content of a file to screen</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">test</span><span class="o">.</span><span class="n">out</span>
+</pre></div>
+</div>
+</li>
+<li><p>Redirect output to a file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">test</span><span class="o">.</span><span class="n">out</span> <span class="o">&gt;</span> <span class="n">myfile</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</li>
+<li><p>Append output to a file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">test</span><span class="o">.</span><span class="n">out</span> <span class="o">&gt;&gt;</span> <span class="n">myfile</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="bash-writing-shell-scripts">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Bash: Writing shell scripts</a><a class="headerlink" href="#bash-writing-shell-scripts" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The following is helpful when you have, say, lots of files with ordered filenames, which you can use to sort and manage as per your requirement. See an example below.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+# here we loop over all files that end with *.out
+for file in *.out; do
+  echo $file
+  cat $file
+done
+</pre></div>
+</div>
+<p>We make the script executable and then run it</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make it executable</span>
+<span class="n">chmod</span> <span class="n">u</span><span class="o">+</span><span class="n">x</span> <span class="n">my_script</span>
+<span class="c1"># run it</span>
+<span class="o">./</span><span class="n">my_script</span>
+</pre></div>
+</div>
+</section>
+<section id="arguments-to-script-can-be-passed-by-using">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Arguments to script can be passed by using <strong>$</strong></a><a class="headerlink" href="#arguments-to-script-can-be-passed-by-using" title="Link to this heading"></a></h3>
+<p>File example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="n">echo</span> <span class="s2">&quot;Arg 1 = $1, Arg 2 = $2, Args = $*&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>./myscript Hello, World!
+Arg 1 = Hello,, Arg2 = World!, Args = Hello, World!
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">$1</span></code> to <code class="docutils literal notranslate"><span class="pre">$n</span></code> denote the first to <em>n</em>-th argument, while myscript.sh is the shell executable. This can be created with</p>
+<dl class="simple">
+<dt>::</dt><dd><p>chmod +x myscript.sh</p>
+</dd>
+</dl>
+<p>To starting executing such scripts, you would need to start with a
+text-editor. Choosing a text-editor is a matter of personal choice, the
+most popular ones being Vim and Emacs. But there are a lot more new and
+interesting ones. Open your favorite text-editor and copy-paste the file
+example above and save with file as &lt;script&gt;. Then run the script by
+typing <code class="docutils literal notranslate"><span class="pre">./&lt;script&gt;</span></code>.</p>
+</section>
+<section id="information-about-shell-commands">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Information about shell commands</a><a class="headerlink" href="#information-about-shell-commands" title="Link to this heading"></a></h3>
+<p>Information about a commands can be retrieved from the manual</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">man</span> <span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Also you can get information about where the executable lies</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">which</span> <span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="executing-your-software">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Executing your software</a><a class="headerlink" href="#executing-your-software" title="Link to this heading"></a></h2>
+<p>Most commands are quite intuitive acronyms and are easy to remember once
+you start using them. The usual syntax is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">command</span> <span class="o">-</span><span class="n">option1</span> <span class="n">arg1</span> <span class="o">-</span><span class="n">option2</span> <span class="n">arg2</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">command</span></code> is the name of the command, <code class="docutils literal notranslate"><span class="pre">-option1</span></code> and
+<code class="docutils literal notranslate"><span class="pre">-option2</span></code> specifies the particulars of the command (they are
+optional, there can be as many options as the specific command permits),
+and <code class="docutils literal notranslate"><span class="pre">arg1</span></code> and <code class="docutils literal notranslate"><span class="pre">arg2</span></code> are the value of the corresponding options. In
+general</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">command</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>Prints information about what options and arguments you can enter.</p>
+</section>
+<section id="editing-your-files">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Editing your files</a><a class="headerlink" href="#editing-your-files" title="Link to this heading"></a></h2>
+<p>Editing your files on our cluster can be done with several text editors.
+<strong>Emacs</strong>, <strong>vi</strong>/<strong>vim</strong> and <strong>nano</strong> can
+be opened by</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ emacs [filename]
+$ vi [filename]
+$ vim [filename]
+$ nano [filename]
+</pre></div>
+</div>
+<p>For Linux beginners, <strong>nano</strong> might be a good editor to start with.
+<strong>Emacs</strong> and <strong>vi</strong> have steeper learning curves, so a reference guide
+is provided here for the most common operations using these editors.</p>
+<p class="rubric">Emacs</p>
+<p>A complete tour of using <strong>emacs</strong> can be found at <a class="reference external" href="https://www.gnu.org/software/emacs/tour/">https://www.gnu.org/software/emacs/tour/</a></p>
+<p>Below is a table summarizing the most frequently used operations.
+<code class="docutils literal notranslate"><span class="pre">C-x</span></code> means pressing simultaneously the <code class="docutils literal notranslate"><span class="pre">control</span></code>-key and <code class="docutils literal notranslate"><span class="pre">x</span></code>,
+<code class="docutils literal notranslate"><span class="pre">C-x</span> <span class="pre">2</span></code> means first pressing both <code class="docutils literal notranslate"><span class="pre">control</span></code>-key and <code class="docutils literal notranslate"><span class="pre">x</span></code> and then
+pressing <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">C-x</span> <span class="pre">C-s</span></code> means first pressing <code class="docutils literal notranslate"><span class="pre">control</span></code>-key and
+<code class="docutils literal notranslate"><span class="pre">x</span></code> followed by <code class="docutils literal notranslate"><span class="pre">control</span></code>-key and <code class="docutils literal notranslate"><span class="pre">s</span></code>, and <code class="docutils literal notranslate"><span class="pre">M-x</span></code> means pressing
+the <code class="docutils literal notranslate"><span class="pre">meta</span></code>-key (Alt-key) and <code class="docutils literal notranslate"><span class="pre">x</span></code> simultaneously.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Keyboard
+command</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$ emacs foo.dat</p></td>
+<td><p>open foo.dat for editing</p></td>
+</tr>
+<tr class="row-odd"><td><p>C-x C-s</p></td>
+<td><p>save file</p></td>
+</tr>
+<tr class="row-even"><td><p>C-x C-c</p></td>
+<td><p>quit emacs</p></td>
+</tr>
+<tr class="row-odd"><td><p>C-x C-w foo.dat</p></td>
+<td><p>save file as foo.dat</p></td>
+</tr>
+<tr class="row-even"><td><p>C-_ or C-/</p></td>
+<td><p>undo last change (can be repeated)</p></td>
+</tr>
+<tr class="row-odd"><td><p>C-g</p></td>
+<td><p>cancel current command</p></td>
+</tr>
+<tr class="row-even"><td><p>C-s</p></td>
+<td><p>incremental search</p></td>
+</tr>
+<tr class="row-odd"><td><p>M-%</p></td>
+<td><p>Query replace</p></td>
+</tr>
+<tr class="row-even"><td><p>C-f</p></td>
+<td><p>Move forward one character</p></td>
+</tr>
+<tr class="row-odd"><td><p>C-b</p></td>
+<td><p>Move backward one character</p></td>
+</tr>
+<tr class="row-even"><td><p>M-f</p></td>
+<td><p>Move forward one word</p></td>
+</tr>
+<tr class="row-odd"><td><p>M-b</p></td>
+<td><p>Move backward one word</p></td>
+</tr>
+<tr class="row-even"><td><p>C-n</p></td>
+<td><p>Next line</p></td>
+</tr>
+<tr class="row-odd"><td><p>C-p</p></td>
+<td><p>Previous line</p></td>
+</tr>
+<tr class="row-even"><td><p>C-a</p></td>
+<td><p>Beginning of line</p></td>
+</tr>
+<tr class="row-odd"><td><p>C-e</p></td>
+<td><p>End of line</p></td>
+</tr>
+<tr class="row-even"><td><p>M-&lt;</p></td>
+<td><p>Beginning of buffer (file)</p></td>
+</tr>
+<tr class="row-odd"><td><p>M-&gt;</p></td>
+<td><p>End of buffer</p></td>
+</tr>
+<tr class="row-even"><td><p>C-k</p></td>
+<td><p>Kill (cut) line</p></td>
+</tr>
+<tr class="row-odd"><td><p>C-u 10 C-k</p></td>
+<td><p>Kill 10 lines (C-u &lt;N&gt; can be used to repeat any
+command)</p></td>
+</tr>
+<tr class="row-even"><td><p>C-y</p></td>
+<td><p>Yank (paste) line</p></td>
+</tr>
+<tr class="row-odd"><td><p>C-SPC</p></td>
+<td><p>Set mark at current location</p></td>
+</tr>
+<tr class="row-even"><td><p>C-w</p></td>
+<td><p>Kill (cut) region between current location and last mark</p></td>
+</tr>
+<tr class="row-odd"><td><p>M-w</p></td>
+<td><p>Save (copy) region</p></td>
+</tr>
+<tr class="row-even"><td><p>C-x (</p></td>
+<td><p>Start defining keyboard macro</p></td>
+</tr>
+<tr class="row-odd"><td><p>C-x )</p></td>
+<td><p>End defining macro</p></td>
+</tr>
+<tr class="row-even"><td><p>C-x e</p></td>
+<td><p>Execute macro once</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">vi/vim</p>
+<p>You can find tips and tricks for using <strong>vi</strong> at <a class="reference external" href="https://www.cs.colostate.edu/helpdocs/vi.html">https://www.cs.colostate.edu/helpdocs/vi.html</a>.</p>
+<p>Below is a table summarizing the most frequently used operations of
+<strong>vi/vim</strong>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Keyboard
+command</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$ vim foo.dat</p></td>
+<td><p>open foo.dat for editing</p></td>
+</tr>
+<tr class="row-odd"><td><p>i</p></td>
+<td><p>enter insert mode, insert before the cursor</p></td>
+</tr>
+<tr class="row-even"><td><p>a</p></td>
+<td><p>enter insert mode, insert (append) after the cursor</p></td>
+</tr>
+<tr class="row-odd"><td><p>o</p></td>
+<td><p>enter insert mode, append a new line</p></td>
+</tr>
+<tr class="row-even"><td><p>Esc</p></td>
+<td><p>exit insert mode</p></td>
+</tr>
+<tr class="row-odd"><td><p>:w</p></td>
+<td><p>save</p></td>
+</tr>
+<tr class="row-even"><td><p>:q</p></td>
+<td><p>quit</p></td>
+</tr>
+<tr class="row-odd"><td><p>:wq</p></td>
+<td><p>save and quit</p></td>
+</tr>
+<tr class="row-even"><td><p>:q!</p></td>
+<td><p>quit without save</p></td>
+</tr>
+<tr class="row-odd"><td><p>u</p></td>
+<td><p>undo last change</p></td>
+</tr>
+<tr class="row-even"><td><p>Ctrl-r</p></td>
+<td><p>redo last change</p></td>
+</tr>
+<tr class="row-odd"><td><p>h</p></td>
+<td><p>move cursor left</p></td>
+</tr>
+<tr class="row-even"><td><p>j</p></td>
+<td><p>move cursor down</p></td>
+</tr>
+<tr class="row-odd"><td><p>k</p></td>
+<td><p>move cursor up</p></td>
+</tr>
+<tr class="row-even"><td><p>l</p></td>
+<td><p>move cursor right</p></td>
+</tr>
+<tr class="row-odd"><td><p>gg</p></td>
+<td><p>move to the beginning of file</p></td>
+</tr>
+<tr class="row-even"><td><p>G</p></td>
+<td><p>move to the end of file</p></td>
+</tr>
+<tr class="row-odd"><td><p>10G</p></td>
+<td><p>move to line 10</p></td>
+</tr>
+<tr class="row-even"><td><p>x</p></td>
+<td><p>delete 1 character</p></td>
+</tr>
+<tr class="row-odd"><td><p>dw</p></td>
+<td><p>delete 1 word</p></td>
+</tr>
+<tr class="row-even"><td><p>dd</p></td>
+<td><p>delete 1 line</p></td>
+</tr>
+<tr class="row-odd"><td><p>d5d</p></td>
+<td><p>delete 5 lines</p></td>
+</tr>
+<tr class="row-even"><td><p>yyp</p></td>
+<td><p>duplicate 1 line</p></td>
+</tr>
+<tr class="row-odd"><td><p>/pattern</p></td>
+<td><p>search for pattern</p></td>
+</tr>
+<tr class="row-even"><td><p>?pattern</p></td>
+<td><p>search backward for pattern</p></td>
+</tr>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>repeat search in same direction</p></td>
+</tr>
+<tr class="row-even"><td><p>N</p></td>
+<td><p>repeat search in opposite direction</p></td>
+</tr>
+<tr class="row-odd"><td><p>:s/old/new/</p></td>
+<td><p>replace the first old with new in the current line</p></td>
+</tr>
+<tr class="row-even"><td><p>:s/old/new/g</p></td>
+<td><p>replace all old with new in the current line</p></td>
+</tr>
+<tr class="row-odd"><td><p>:%s/old/new/g</p></td>
+<td><p>replace all old with new throughout file</p></td>
+</tr>
+</tbody>
+</table>
+<p>Learn more at <a class="reference external" href="http://www.fprintf.net/vimCheatSheet.html">http://www.fprintf.net/vimCheatSheet.html</a></p>
+<p>The apperance of <strong>vim</strong> can be configured via the <code class="docutils literal notranslate"><span class="pre">~/.vimrc</span></code> file.
+Below is an example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">syntax</span> <span class="n">on</span>
+
+<span class="n">filetype</span> <span class="n">plugin</span> <span class="n">indent</span> <span class="n">on</span>
+<span class="nb">set</span> <span class="n">autoindent</span>
+
+<span class="nb">set</span> <span class="n">hlsearch</span>      <span class="s2">&quot; highlight search</span>
+<span class="nb">set</span> <span class="n">number</span>        <span class="s2">&quot; show line number</span>
+<span class="nb">set</span> <span class="n">ruler</span>         <span class="s2">&quot; show ruler at bottom right</span>
+
+<span class="s2">&quot; Return to last edit position when opening files</span>
+<span class="n">autocmd</span> <span class="n">BufReadPost</span> <span class="o">*</span>
+     \ <span class="k">if</span> <span class="n">line</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">line</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">line</span><span class="p">(</span><span class="s2">&quot;$&quot;</span><span class="p">)</span> <span class="o">|</span>
+     \   <span class="n">exe</span> <span class="s2">&quot;normal! g`</span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="o">|</span>
+     \ <span class="n">endif</span>
+</pre></div>
+</div>
+<p>Congratulations on getting a basic linux driver licence.!
+Have fun on the HPC system now.</p>
+</section>
+<section id="further-information">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Further information</a><a class="headerlink" href="#further-information" title="Link to this heading"></a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt>The Linux Command Line by William E. Shotts, Jr.</dt><dd><p>This book introduces the linux command line from the basics, and
+moves on to customizing the working environment and then finally to
+shell scripting. The entire book is available for free from the
+authors web page, and if you would like a paper copy you can order
+one from the publisher.</p>
+</dd>
+<dt>UNIX / Linux Tutorial for Beginners</dt><dd><p>The University of Surrey has an <a class="reference external" href="http://www.ee.surrey.ac.uk/Teaching/Unix/index.html">online
+tutorial</a>
+that introduces the linux command line. The web page also has links
+to other recommended linux books.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Atul Singh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
